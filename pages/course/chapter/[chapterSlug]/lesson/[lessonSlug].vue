@@ -4,13 +4,11 @@ const route = useRoute();
 
 const chapter = computed(() => {
   return course.chapters.find(chapter => chapter.slug === route.params.chapterSlug);
-})
+});
 
 const lesson = computed(() => {
   return chapter.value.lessons.find(lesson => lesson.slug === route.params.lessonSlug);
-})
-
-console.log('Course:', course);
+});
 </script>
 
 <template>
