@@ -9,6 +9,14 @@ const chapter = computed(() => {
 const lesson = computed(() => {
   return chapter.value.lessons.find(lesson => lesson.slug === route.params.lessonSlug);
 });
+
+const title = computed(() => {
+  return `Lesson ${lesson.value.title} - ${course.title}`;
+});
+
+useHead({
+  title,
+})
 </script>
 
 <template>
