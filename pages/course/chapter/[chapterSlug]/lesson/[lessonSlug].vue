@@ -2,6 +2,10 @@
 const course = useCourse();
 const route = useRoute();
 
+if(route.params.lessonSlug === '3-typing-component-events') {
+  console.log(route.params.paramthatdoesnotexistwhoops.capitalizeIsNotAMethod());
+}
+
 const chapter = computed(() => {
   return course.chapters.find(chapter => chapter.slug === route.params.chapterSlug);
 });
@@ -33,12 +37,11 @@ const isLessonComplete = computed(() => {
 })
 
 const toggleComplete = () => {
-  throw createError('Could not Update')
-  // if(!progress.value[chapter.value.number - 1]) {
-  //   progress.value[chapter.value.number - 1] = [];
-  // }
+  if(!progress.value[chapter.value.number - 1]) {
+    progress.value[chapter.value.number - 1] = [];
+  }
 
-  // progress.value[chapter.value.number - 1][lesson.value.number - 1] = !isLessonComplete.value;
+  progress.value[chapter.value.number - 1][lesson.value.number - 1] = !isLessonComplete.value;
 }
 </script>
 

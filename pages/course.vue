@@ -1,5 +1,10 @@
 <script setup>
 const { chapters } = useCourse();
+
+const resetError = async (clearError) => {
+  await navigateTo('/course/chapter/1-chapter-1/lesson/1-introduction-to-typescript-with-vue-js-3')
+  clearError();
+};
 </script>
 
 <template>
@@ -48,7 +53,7 @@ const { chapters } = useCourse();
               <div>
                 <button
                   class="hover:cursor-pointer bg-gray-500 text-white font-bold py-1 px-3 rounded"
-                  @click="clearError"
+                  @click="resetError(clearError)"
                 >
                   Reset
                 </button>
