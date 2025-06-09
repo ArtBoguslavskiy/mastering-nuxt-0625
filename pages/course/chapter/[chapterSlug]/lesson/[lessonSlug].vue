@@ -1,4 +1,4 @@
-lear<script setup>
+<script setup>
 const course = useCourse();
 const route = useRoute();
 
@@ -33,11 +33,12 @@ const isLessonComplete = computed(() => {
 })
 
 const toggleComplete = () => {
-  if(!progress.value[chapter.value.number - 1]) {
-    progress.value[chapter.value.number - 1] = [];
-  }
+  throw createError('Could not Update')
+  // if(!progress.value[chapter.value.number - 1]) {
+  //   progress.value[chapter.value.number - 1] = [];
+  // }
 
-  progress.value[chapter.value.number - 1][lesson.value.number - 1] = !isLessonComplete.value;
+  // progress.value[chapter.value.number - 1][lesson.value.number - 1] = !isLessonComplete.value;
 }
 </script>
 
@@ -68,7 +69,7 @@ const toggleComplete = () => {
       :video-id="lesson.videoId"
     />
     <p>{{ lesson.text }}</p>
-      <LessonCompleteButton
+    <LessonCompleteButton
       :model-value="isLessonComplete"
       @update:model-value="toggleComplete"
     />
