@@ -1,3 +1,12 @@
+<script setup>
+const firstLesson = useFirstLesson();
+</script>
+
 <template>
-  <div>Hello Nuxt 3 Master</div>
+  <NuxtLink
+    class="underline font-medium"
+    :href="firstLesson.path"
+  >
+    Go to first lesson
+  </NuxtLink>
 </template>

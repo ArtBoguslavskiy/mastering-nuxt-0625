@@ -3,6 +3,7 @@ const course = useCourse();
 const route = useRoute();
 
 definePageMeta({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   middleware: function({ params }, from) {
     const course = useCourse();
 
