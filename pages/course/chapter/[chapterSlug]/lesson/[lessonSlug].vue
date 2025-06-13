@@ -1,4 +1,5 @@
 <script setup>
+
 const course = useCourse();
 const route = useRoute();
 
