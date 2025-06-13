@@ -1,16 +1,16 @@
 <script setup>
-const course = useCourse();
+const course = await useCourse();
 const route = useRoute();
-const {chapterSlug, lessonSlug} = route.params;
+const { chapterSlug, lessonSlug } = route.params;
 const lesson = await useLesson(chapterSlug, lessonSlug);
 
 definePageMeta({
   middleware: [
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    function({ params }, from) {
-      const course = useCourse();
+    async function({ params }, from) {
+      const course = await useCourse();
 
-      const chapter = course.chapters.find((chapter) => chapter.slug === params.chapterSlug);
+      const chapter = course.value.chapters.find((chapter) => chapter.slug === params.chapterSlug);
 
       if(!chapter) {
         return abortNavigation(
@@ -37,11 +37,11 @@ definePageMeta({
 })
 
 const chapter = computed(() => {
-  return course.chapters.find(chapter => chapter.slug === route.params.chapterSlug);
+  return course.value.chapters.find(chapter => chapter.slug === route.params.chapterSlug);
 });
 
 const title = computed(() => {
-  return `Lesson ${lesson.value.title} - ${course.title}`;
+  return `Lesson ${lesson.value.title} - ${course.value.title}`;
 });
 
 useHead({

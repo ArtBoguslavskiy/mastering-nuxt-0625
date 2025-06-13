@@ -16,7 +16,7 @@ export default async <T>(url: string) => {
     }
     cashed.value = data.value as T;
   } else {
-    console.log(`Getting value from cashe`);
+    console.log(`Getting value for ${url}`);
   }
 
   return cashed;
